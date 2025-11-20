@@ -206,7 +206,125 @@ public class EjerciciosT2 {
         System.out.println("¿Tienes descuento estudiante?: "+estudiante);
         System.out.println("¿Tienes descuento especial?: "+descuentoEspecial);
 
+    }
+
+    public static void ejercicio8(){
+        /* Desarrolla un programa que pida tres números al usuario y calcule:
+        la suma de los tres, el promedio, el resultado de multiplicar el primero por el segundo y
+        dividirlo entre el tercero. Usa paréntesis para controlar la precedencia de operadores.
+
+        Ejemplo de salida por consola:
+        Introduce el primer número: 10
+        Introduce el segundo número: 5
+        Introduce el tercer número: 2
+        Suma de los tres números: 15
+        Promedio: 5.0
+        Resultado de (número1 * número2) / número3: 25.0 */
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Introduce el primer número: ");
+            int primerNumero = scanner.nextInt();
+
+            System.out.println("Introduce el segundo número: ");
+            int segundoNumero = scanner.nextInt();
+
+            System.out.println("Introduce el tercer número");
+            int tercerNumero = scanner.nextInt();
+
+            int suma =  primerNumero +segundoNumero + tercerNumero;
+            double promedio =  suma / 3;
+
+            System.out.println("Suma de los tres números: "+ suma);
+            System.out.println("Promedio: "+ promedio);
+            System.out.println("Resultado de primerNumero * segundoNumero)/tercerNumero:"+ (primerNumero * segundoNumero)/tercerNumero );
+
         }
 
+    public static void ejercicio9(){
+        /* Escribe un programa que pida al usuario la puntuación de tres exámenes.
+        Calcula la nota media y usa operadores relacionales para determinar si ha aprobado (>=5),
+        si tiene notable (>=7), y si tiene sobresaliente (>=9). Muestra todos los resultados.
+
+        Ejemplo de salida por consola:
+        Introduce la nota del primer examen: 8
+        Introduce la nota del segundo examen: 7
+        Introduce la nota del tercer examen: 9
+        Nota media: 8.0
+        ¿Ha aprobado? (>=5): true
+        ¿Tiene notable? (>=7): true
+        ¿Tiene sobresaliente? (>=9): false */
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce la nota del primer examen: ");
+        double nota1 = scanner.nextDouble();
+
+        System.out.println("Introduce la nota del segundo examen: ");
+        double nota2 = scanner.nextDouble();
+
+        System.out.println("Introduce la nota del segundo examen: ");
+        double nota3 = scanner.nextDouble();
+
+        double media = (nota1 + nota2 + nota3) / 3;
+
+        boolean aprobado = media >= 5;
+        boolean notable = media >= 7;
+        boolean sobresaliente = media >= 9;
+
+        System.out.println("Nota media: "+media);
+        System.out.println("¿Ha aprobado? "+aprobado);
+        System.out.println("¿Tiene notable? "+notable);
+        System.out.println("¿Tiene sobresaliente? "+sobresaliente);
     }
+
+    public static void  ejercicio10(){
+        /*Crea un programa que pida el salario base por hora, las horas trabajadas y si ha hecho horas extra (true/false).
+         Si ha hecho horas extra y trabajó más de 40 horas, las horas que excedan de 40 se pagan al doble.
+         Usa operadores lógicos, relacionales y aritméticos para calcular el salario total.
+
+        Ejemplo de salida por consola:
+        Introduce el salario por hora: 10
+        Introduce las horas trabajadas: 45
+        ¿Has hecho horas extra? (true/false): true
+        Horas normales (máximo 40): 40
+        Horas extra: 5
+        ¿Trabajaste más de 40 horas?: true
+        ¿Tienes derecho a horas extra?: true
+        ¿Se aplican horas extra? (>40 AND permitido): true
+        Salario por horas normales: 400.0€
+        Salario por horas extra (al doble): 100.0€
+        Salario total: 500.0€ */
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce el salario por hora: ");
+        double salarioHora = scanner.nextDouble();
+
+        System.out.println("Introduce las horas trabajadas: ");
+        int horasTrabajadas = scanner.nextInt();
+
+        System.out.println("¿Has hecho horas extra? (true/false): ");
+        boolean realizaExtra = scanner.nextBoolean();
+
+        int horasPermitidas = 40;
+
+        boolean mas40 = horasTrabajadas >40;
+        boolean aplicarExtras = mas40 && realizaExtra;
+
+        int horasNormales = Math.min(horasTrabajadas , horasPermitidas);
+        int horasExtra = Math.max(horasTrabajadas - horasPermitidas, 0);
+
+        double salarioNormal = horasNormales * salarioHora;
+        double salarioExtra = (horasExtra * salarioHora) * 2;
+        double salarioTotal = salarioExtra + salarioNormal;
+
+        System.out.println("Horas normales (máximo 40): " + horasNormales);
+        System.out.println("Horas extra: " + horasExtra);
+        System.out.println("Trabajaste más de 40 horas?: " + (horasTrabajadas > 40));
+        System.out.println("Tienes derecho a horas extra?: " + (horasTrabajadas > 40));
+        System.out.println("¿Se aplican horas extra?: " + aplicarExtras);
+        System.out.println("¿Salario por hora normales?: " + salarioNormal + "€");
+        System.out.println("¿Salario por horas extras?: " + salarioExtra + "€");
+        System.out.println("¿Salario total: " + salarioTotal + "€");
+
+    }
+}
 
